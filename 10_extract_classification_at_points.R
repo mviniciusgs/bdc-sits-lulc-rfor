@@ -6,8 +6,8 @@
 #
 # Extracts the classified value at each validation point (generated in step
 # 9), for every classification raster found in raster_dir, translating the
-# numeric class codes to their class names. Output feeds step 10's accuracy
-# assessment (Olofsson script)
+# numeric class codes to their class names. The output is the table used for
+# the accuracy assessment
 
 library(sf)
 library(terra)

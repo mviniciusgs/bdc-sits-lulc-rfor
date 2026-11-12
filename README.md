@@ -3,8 +3,8 @@
 Pipeline used in this thesis to classify land use and land cover from Sentinel-2
 imagery, using the Brazil Data Cube (BDC), the `sits` R package for the data
 cube and Random Forest classification, an OBIA (GRASS `i.segment`)
-segmentation step for landscape metrics, a PRODES-based forest and non-forest masks, and a
-stratified accuracy assessment following Olofsson et al. (2014).
+segmentation step for landscape metrics, PRODES-based forest and non-forest masks, and
+stratified sampling of validation points.
 
 
 ## Pipeline steps
@@ -25,12 +25,11 @@ and the paths you need to edit (marked with placeholders like
 | 8 | `08_apply_prodes_mask.py` | Reclassifies secondary-vegetation pixels into FLO/NFLO using PRODES forest/non-forest masks. |
 | 9 | `09_generate_stratified_sampling_points.R` | Generates stratified validation points (Olofsson/Cochran sample-size equations), eroding class borders to avoid mixed pixels. |
 | 10 | `10_extract_classification_at_points.R` | Extracts the classified value at each validation point and translates class codes to names. |
-| 11 | `11_olofsson_accuracy_assessment.R` | Computes the stratified accuracy assessment (overall/user's/producer's accuracy with SE and 95% CI), confusion matrices, error composition and patch-size charts. |
 
 ## Requirements
 
-**R**: `sits`, `sf`, `terra`, `raster`, `dplyr`, `tidyr`, `ggplot2`, `stringr`,
-`caret`, `readr`, `tmap`, `tibble`, `tools`, `magrittr`
+**R**: `sits`, `sf`, `terra`, `raster`, `dplyr`, `readr`, `tmap`, `tibble`,
+`tools`, `magrittr`
 
 **Python**: `rasterio`, `geopandas`, `numpy`, `pandas`, `rioxarray`, `xarray`,
 `shapely`, `psutil`
